@@ -1,4 +1,4 @@
-name: 同步上游仓库
+name: Ariszy-sync
 on:
   schedule:
     - cron: '1 */3 * * *'
@@ -6,7 +6,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: repo-sync
+    types: sync-Ariszy-Private-Script
 jobs:
   repo-sync:
     env:
@@ -18,11 +18,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync ZIYE-scripts
+      - name: sync Ariszy-Private-Script
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/ziye888/JavaScript.git"
-          source_branch: "main"
-          destination_branch: "ZIYE"
+          source_repo: "https://github.com/Ariszy/Private-Script.git"
+          source_branch: "master"
+          destination_branch: "Ariszy"
           github_token: ${{ secrets.PAT }}
