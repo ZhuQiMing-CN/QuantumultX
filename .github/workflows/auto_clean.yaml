@@ -1,8 +1,8 @@
-name: 'workflows日志自动清理'
+name: 'delete-workflow-runs'
 
 on:
   schedule:
-    - cron: '20 */3 * *'
+    - cron: '0 0 */3 * *'
   workflow_dispatch:
 
 jobs:
